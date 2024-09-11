@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Home assistant Blackout add-on: Andrew J.Swan</h1>
+<h1>Home Assistant Blackout Add-ons</h1>
 </div>
 
 ## General

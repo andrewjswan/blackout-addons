@@ -1,0 +1,41 @@
+---
+name: SvitloBot Monitor
+version: 2024.9.0
+slug: svitlobot-monitor
+description: This project check the data from SvitloBot API and send the electricity switching on or off tendency indication for the appropriate DTEK group to the appropriate telegram user/chat/group/forum.
+url: https://github.com/andrewjswan/blackout-addons/svitlobot-monitor/
+
+codenotary: notary@home-assistant.io
+
+arch: 
+  - amd64
+  - aarch64
+  - armv7
+
+#image: ghcr.io/andrewjswan/svitlobot-monitor-addon-{arch}
+
+startup: application
+boot: auto
+init: false
+
+map: 
+  - addons:rw
+  - all_addon_configs:rw
+  - config:rw
+  - share:rw
+  - ssl:rw
+
+homeassistant: 2024.1.0
+
+panel_icon: mdi:lightning-bolt-circle
+panel_title: SvitloBot Monitor
+
+options:
+  group: 1
+  step_interval: "5:10,10:30,15:60"
+
+schema:
+  group: int
+  token: password
+  chat_id: str
+  step_interval: str
