@@ -1,0 +1,45 @@
+---
+name: DTEKInfo
+version: 2024.9.0
+slug: dtekinfo
+description: DTEKInfo checks the last message on the public channel that warns about blackouts, filters the message and sends it to your private channel or group.
+url: https://github.com/andrewjswan/blackout-addons/dtekinfo/
+
+codenotary: notary@home-assistant.io
+
+arch: 
+  - amd64
+  - aarch64
+  - armv7
+
+#image: ghcr.io/andrewjswan/dtekinfo-addon-{arch}
+
+startup: application
+boot: auto
+init: false
+
+map: 
+  - addons:rw
+  - all_addon_configs:rw
+  - config:rw
+  - share:rw
+  - ssl:rw
+
+homeassistant: 2024.1.0
+
+panel_icon: mdi:lightning-bolt-circle
+panel_title: DTEKInfo
+
+options:
+  url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json'
+  time_pattern: '\b\d{2}:\d{2}\b'
+  text_pattern: '1\s*груп[ау]'
+
+schema:
+  token: password
+  chat_id: str
+  url: str
+  time_pattern: str
+  text_pattern: str
+
+  log_level: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)?
