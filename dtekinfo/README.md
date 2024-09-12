@@ -25,6 +25,9 @@ text_pattern: '1\s*груп[ау]' # Regex Text pattern (DTEK group)
 log_level: DEBUG # Optional, values: DEBUG|INFO|WARNING|ERROR|CRITICAL
 ```
 
+> [!TIP]
+> DTEK Blackout schedule [calendars](https://github.com/andrewjswan/dtek-blackout-schedule-calendars)
+
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-blue.svg
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-blue.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-blue.svg
