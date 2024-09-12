@@ -32,14 +32,12 @@ panel_title: DTEKInfo
 
 options:
   url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json'
-  time_pattern: '\b\d{2}:\d{2}\b'
   text_pattern: '1\s*груп[ау]'
 
 schema:
   token: password
   chat_id: str
   url: str
-  time_pattern: str
   text_pattern: str
 
   log_level: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)?

@@ -45,13 +45,13 @@ export LOG_LEVEL=$(bashio::config 'log_level')
 export TOKEN=$(bashio::config 'token')
 export CHAT_ID=$(bashio::config 'chat_id')
 export URL=$(bashio::config 'url')
-export TIME_PATTERN=$(bashio::config 'time_pattern')
 export TEXT_PATTERN=$(bashio::config 'text_pattern')
 
 bashio::log.info 'DTEKInfo Starting...'
 bashio::log.info 'Configuration:'
 bashio::log.blue "  Chat ID: $(bashio::config 'chat_id')"
 bashio::log.blue "  RSSHub URL: $(bashio::config 'url')"
+bashio::log.blue "  Pattern: $(bashio::config 'text_pattern')"
 bashio::log.info 'DTEKInfo Start'
 bashio::log.info
 

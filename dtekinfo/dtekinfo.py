@@ -6,11 +6,11 @@ import logging
 import os
 import re
 import sys
-import urllib
 from pathlib import Path
 
 import html2texttg
 import httpx
+from telebot.async_telebot import AsyncTeleBot
 
 LOGGER = logging.getLogger(__name__)
 
@@ -18,7 +18,6 @@ config = {
     "token": "",
     "url": "",
     "chat_id": "",
-    "time_pattern": "",
     "text_pattern": "",
 }
 
@@ -46,22 +45,14 @@ def save_last_message(message_id: str) -> None:
 def extract_relevant_lines(message_text: str) -> list[str]:
     """Extract relevant lines from message."""
     text_pattern = re.compile(config["text_pattern"], re.IGNORECASE)
-    time_pattern = re.compile(config["time_pattern"])
     lines = message_text.split("\n")
     relevant_lines = []
-    last_time = None
     h = html2texttg.HTML2Text()
 
     for line in lines:
         cleaned_line = h.handle(line.strip())
-        if time_pattern.search(cleaned_line):
-            last_time = time_pattern.search(cleaned_line).group()
-
         if text_pattern.search(cleaned_line):
-            if last_time:
-                relevant_lines.append(f"💡 {last_time}\n{cleaned_line}")
-            else:
-                relevant_lines.append(f"{cleaned_line}")
+            relevant_lines.append(f"{cleaned_line}")
 
     return relevant_lines
 
@@ -74,12 +65,10 @@ async def getdata(url: str) -> str:
         return response.json()
 
 
-async def senddata(url: str) -> str:
+async def senddata(text: str) -> None:
     """Send data for URL."""
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url)
-        response.raise_for_status()
-        return response.json()
+    bot = AsyncTeleBot(config["token"])
+    await bot.send_message(config["chat_id"], text, parse_mode="Markdown")
 
 
 async def check_for_new_messages() -> None:
@@ -99,9 +88,7 @@ async def check_for_new_messages() -> None:
             if relevant_lines:
                 for line in relevant_lines:
                     LOGGER.debug("Sending a message: %s", line)
-                    quote_line = urllib.parse.quote_plus(line)
-                    send_url = f'https://api.telegram.org/bot{config["token"]}/sendMessage?chat_id={config["chat_id"]}&text={quote_line}&parse_mode=markdown'
-                    await senddata(send_url)
+                    await senddata(line)
                     save_last_message(message["id"])
             else:
                 LOGGER.debug("No matching lines found.")
@@ -126,7 +113,6 @@ def load_config() -> bool:
     url = os.getenv("URL")  # RSSHub URL (json)
 
     # Regex patterns
-    time_pattern_str = os.getenv("TIME_PATTERN")  # Time search regex pattern (HH:MM)
     text_pattern_str = os.getenv("TEXT_PATTERN")  # Group search regex pattern
 
     # Check config
@@ -139,16 +125,12 @@ def load_config() -> bool:
     if not url:
         LOGGER.error("URL not defined.")
         return False
-    if not time_pattern_str:
-        LOGGER.error("Time pattern not defined.")
-        return False
     if not text_pattern_str:
         LOGGER.error("Text pattern not defined.")
         return False
     config["token"] = bot_token
     config["chat_id"] = chat_id
     config["url"] = url
-    config["time_pattern"] = time_pattern_str
     config["text_pattern"] = text_pattern_str
 
     return True

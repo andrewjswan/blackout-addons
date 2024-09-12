@@ -5,7 +5,7 @@
 ## General
 
 [![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
-[![snmp2mqtt](https://img.shields.io/badge/DTEK-Info-blue.svg)](https://github.com/andrewjswan/blackout-addons/dtekinfo/)
+[![DTEKInfo](https://img.shields.io/badge/DTEK-Info-blue.svg)](https://github.com/andrewjswan/blackout-addons/dtekinfo/)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/blackout-addons?color=blue)](https://github.com/andrewjswan/blackout-addons/blob/master/LICENSE)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
@@ -21,7 +21,6 @@ DTEKInfo checks the last message on the public channel that warns about blackout
 toket: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram bot Token
 url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json' # RSSHub URL for channel that warns about blackouts
 chat_id: -0000000000000 # Target Chat ID
-time:pattern: '\b\d{2}:\d{2}\b' # Regex Time pattern
 text_pattern: '1\s*груп[ау]' # Regex Text pattern (DTEK group)
 log_level: DEBUG # Optional, values: DEBUG|INFO|WARNING|ERROR|CRITICAL
 ```
