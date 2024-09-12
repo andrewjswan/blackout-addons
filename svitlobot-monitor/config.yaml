@@ -7,18 +7,18 @@ url: https://github.com/andrewjswan/blackout-addons/svitlobot-monitor/
 
 codenotary: notary@home-assistant.io
 
-arch: 
+arch:
   - amd64
   - aarch64
   - armv7
 
-#image: ghcr.io/andrewjswan/svitlobot-monitor-addon-{arch}
+# image: ghcr.io/andrewjswan/svitlobot-monitor-addon-{arch}
 
 startup: application
 boot: auto
 init: false
 
-map: 
+map:
   - addons:rw
   - all_addon_configs:rw
   - config:rw
