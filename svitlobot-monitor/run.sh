@@ -45,6 +45,8 @@ bashio::log.info 'Prepare config...'
 
 CONFIG_PATH=/data/options.json
 
+declare -a options
+
 export TELEGRAM_BOT_AUTH_TOKEN=$(bashio::config 'token')
 export TELEGRAM_CHAT_ID=$(bashio::config 'chat_id')
 export TELEGRAM_TOPIC_ID=0
@@ -54,6 +56,10 @@ bashio::log.info 'Configuration:'
 bashio::log.blue "  Group: $(bashio::config 'group')"
 bashio::log.blue "  Chat ID: $(bashio::config 'chat_id')"
 bashio::log.blue "  Step interval: $(bashio::config 'step_interval')"
+if bashio::config.true 'debug'; then
+    bashio::log.info "  Setting debug mode"
+    options+=(--debug)
+fi
 bashio::log.info 'SvitloBot Monitor Start'
 bashio::log.info
 
@@ -61,7 +67,7 @@ bashio::log.info
 
 bashio::color.blue
 cd /app
-node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --as-bot --add-timestamp --time-zone "Europe/Kiev" --step-interval-pair $(bashio::config 'step_interval')
+node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --as-bot --add-timestamp --time-zone "Europe/Kiev" --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
 bashio::color.reset
 
 # ==============================================================================
