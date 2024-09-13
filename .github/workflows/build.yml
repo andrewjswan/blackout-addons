@@ -1,0 +1,79 @@
+name: Blackout / Builder
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**/config.*"
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  addon_list:
+    name: Make addon list
+    if: github.repository_owner == 'alexbelgium'
+    runs-on: ubuntu-latest
+    steps:
+      - name: ↩️ Git Checkout
+        uses: actions/checkout@v4
+      - name: 🔎 Update Addon list
+        run: |
+          # Init
+          echo "Starting"
+
+          # Go through all folders, add to filters if not existing
+          mkdir addon_list
+          for f in $( find -- * -maxdepth 0 -type d | sort -r ); do
+            if [ -f "$f"/config.yaml ]; then
+              # Add to file
+              if ! grep "$f:" "addon_list/paths-filter.yml"; then
+                echo "$f: $f/config.*" >> "addon_list/paths-filter.yml"
+              fi
+            fi
+          done
+
+          # Sort yaml
+          sort -t= "addon_list/paths-filter.yml" -o "addon_list/paths-filter.yml"
+      - name: Upload Artifact / Addon list
+        uses: actions/upload-artifact@v4
+        if: ${{ success() }}
+        with:
+          name: Addon list
+          path: |
+            addon_list/paths-filter.yml
+          retention-days: 1
+          if-no-files-found: error
+
+  addon_changes:
+    name: Check for Addon changes
+    runs-on: ubuntu-latest
+    needs:
+      - addon_list
+    outputs:
+      changed_addons: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: ↩️ Git Checkout
+        uses: actions/checkout@v4
+      - name: Download Artifact / Addon list
+        uses: actions/download-artifact@v4
+        with:
+          name: Addon list
+          path: addon-list
+      - name: 📂 Detect changed files
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: /addon-list/paths-filter.yml
+
+  build:
+    if: ${{ needs.check-addon-changes.outputs.changed_addons != '[]' }}
+    name: Build ${{ matrix.addon }} add-on
+    needs:
+      - addon_changes
+    strategy:
+      matrix:
+        addon: ${{ fromJSON(needs.check-addon-changes.outputs.changed_addons) }}
+    uses: ./.github/workflows/test.yml
+    with:
+      addon: ${{ matrix.addon }}
