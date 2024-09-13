@@ -27,11 +27,12 @@ step_interval: 5:10 10:30 15:60 # Tendency by specifying a value step in percent
 debug: false # Optional: Debug level of logging
 ```
 
-[![English Documentation](https://img.shields.io/static/v1?label=Documentation&message=English&color=blue)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README.md)
-[![Ukrainian Documentation](https://img.shields.io/static/v1?label=Documentation&message=Ukrainian&labelColor=1f5fb2&color=fad247)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README-uk.md)
-
 > [!NOTE]
 > Builded from [**Svitlo**Bot Monitor](https://github.com/PetroVoronov/svitlobot-monitor) by [Petro Voronov](https://github.com/PetroVoronov)
+> 
+> [![English Documentation](https://img.shields.io/static/v1?label=Documentation&message=English&color=blue)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README.md)
+[![Ukrainian Documentation](https://img.shields.io/static/v1?label=Documentation&message=Ukrainian&labelColor=1f5fb2&color=fad247)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README-uk.md)
+
 
 > [!TIP]
 > ESPHome **Svitlo**Bot [configuration](https://github.com/andrewjswan/svitlobot) and [**SvitloBot - ESP Web Tools**](https://andrewjswan.github.io/svitlobot/)
