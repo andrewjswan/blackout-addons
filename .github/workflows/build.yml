@@ -4,20 +4,23 @@ on:
   push:
     branches:
       - master
-    paths:
-      - "**/config.*"
+    paths-ignore:
+      - '.github/**'
+
   workflow_call:
   workflow_dispatch:
 
 jobs:
-  addon_list:
-    name: Make addon list
-    if: github.repository_owner == 'alexbelgium'
+  addon_changes:
+    name: 👀 Check for Addon changes
     runs-on: ubuntu-latest
+    outputs:
+      changed_config: ${{ steps.config.outputs.changes }}
+      changed_addons: ${{ steps.addons.outputs.changes }}
     steps:
       - name: ↩️ Git Checkout
         uses: actions/checkout@v4
-      - name: 🔎 Update Addon list
+      - name: 🔎 Make Addon list
         run: |
           # Init
           echo "Starting"
@@ -28,52 +31,68 @@ jobs:
             if [ -f "$f"/config.yaml ]; then
               # Add to file
               if ! grep "$f:" "addon_list/paths-filter.yml"; then
-                echo "$f: $f/config.*" >> "addon_list/paths-filter.yml"
+                echo "$f: $f/config.*" >> "addon_list/paths-config.yml"
+                echo "$f: $f/**" >> "addon_list/paths-addons.yml"
               fi
             fi
           done
 
           # Sort yaml
-          sort -t= "addon_list/paths-filter.yml" -o "addon_list/paths-filter.yml"
-      - name: Upload Artifact / Addon list
-        uses: actions/upload-artifact@v4
-        if: ${{ success() }}
-        with:
-          name: Addon list
-          path: |
-            addon_list/paths-filter.yml
-          retention-days: 1
-          if-no-files-found: error
+          sort -t= "addon_list/paths-config.yml" -o "addon_list/paths-config.yml"
+          sort -t= "addon_list/paths-addons.yml" -o "addon_list/paths-addons.yml"
 
-  addon_changes:
-    name: Check for Addon changes
-    runs-on: ubuntu-latest
-    needs:
-      - addon_list
-    outputs:
-      changed_addons: ${{ steps.filter.outputs.changes }}
-    steps:
-      - name: ↩️ Git Checkout
-        uses: actions/checkout@v4
-      - name: Download Artifact / Addon list
-        uses: actions/download-artifact@v4
-        with:
-          name: Addon list
-          path: addon-list
-      - name: 📂 Detect changed files
+      - name: ⚙️ Detect changed configs
         uses: dorny/paths-filter@v3
-        id: filter
+        id: config
         with:
-          filters: /addon-list/paths-filter.yml
+          filters: /addon-list/paths-config.yml
 
-  build:
-    if: ${{ needs.check-addon-changes.outputs.changed_addons != '[]' }}
-    name: Build ${{ matrix.addon }} add-on
+      - name: ⚙️ Detect changed addons
+        uses: dorny/paths-filter@v3
+        id: addons
+        with:
+          filters: /addon-list/paths-addons.yml
+
+  test:
+    if: ${{ needs.addon_changes.outputs.changed_addons != '[]' }}
+    name: 🚀 Test ${{ matrix.addon }} add-on
     needs:
       - addon_changes
     strategy:
       matrix:
-        addon: ${{ fromJSON(needs.check-addon-changes.outputs.changed_addons) }}
-    uses: ./.github/workflows/test.yml
+        addon: ${{ fromJSON(needs.addon_changes.outputs.changed_addons) }}
+    uses: ./.github/workflows/docker_test.yml
     with:
       addon: ${{ matrix.addon }}
+
+  build:
+    if: ${{ needs.addon_changes.outputs.changed_config != '[]' }}
+    name: 🚀 Build ${{ matrix.addon }} add-on
+    needs:
+      - test
+      - addon_changes
+    strategy:
+      matrix:
+        addon: ${{ fromJSON(needs.addon_changes.outputs.changed_config) }}
+    uses: ./.github/workflows/docker_build.yml
+    with:
+      addon: ${{ matrix.addon }}
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit
+
+  ci-status:
+    name: 🎭 Status
+    runs-on: ubuntu-latest
+    needs:
+      - test
+      - build
+    if: always()
+    steps:
+      - name: 🎉 Success
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: ❌ Failure
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
