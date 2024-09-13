@@ -34,7 +34,7 @@ jobs:
 
   docker:
     name: Docker / Test
-    needs: 
+    needs:
       - init
     runs-on: ubuntu-latest
     strategy:
