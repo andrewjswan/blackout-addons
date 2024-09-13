@@ -30,8 +30,10 @@ jobs:
           for f in $( find -- * -maxdepth 0 -type d | sort -r ); do
             if [ -f "$f"/config.yaml ]; then
               # Add to file
-              if ! grep "$f:" "addon_list/paths-filter.yml"; then
+              if ! grep "$f:" "addon_list/paths-config.yml"; then
                 echo "$f: $f/config.*" >> "addon_list/paths-config.yml"
+              fi
+              if ! grep "$f:" "addon_list/paths-addons.yml"; then
                 echo "$f: $f/**" >> "addon_list/paths-addons.yml"
               fi
             fi
