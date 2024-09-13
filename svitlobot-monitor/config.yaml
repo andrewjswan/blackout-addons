@@ -4,7 +4,6 @@ version: 2024.9.1
 slug: svitlobot-monitor
 description: SvitloBot Monitor check the data from SvitloBot API and send the electricity switching on or off tendency indication for the appropriate DTEK group to the appropriate telegram user/chat/group/forum.
 url: https://github.com/andrewjswan/blackout-addons/svitlobot-monitor/
-
 codenotary: notary@home-assistant.io
 
 arch:
