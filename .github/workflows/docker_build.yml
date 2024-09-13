@@ -60,7 +60,7 @@ jobs:
         with:
           args: |
             --${{ matrix.arch }} \
-            --target rsshub \
+            --target ${{ inputs.addon }} \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --image "rsshub-addon-{arch}" \
+            --image "${{ inputs.addon }}-addon-{arch}" \
             --addon
