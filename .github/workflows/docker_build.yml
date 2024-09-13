@@ -53,7 +53,7 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: ghcr.io        
+          registry: ghcr.io
 
       - name: Build
         uses: home-assistant/builder@master
