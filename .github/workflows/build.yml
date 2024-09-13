@@ -24,7 +24,7 @@ jobs:
         run: |
           # Init
           echo "Starting"
-          
+
           mkdir addon-list
           touch addon-list/paths-config.yml
           touch addon-list/paths-addons.yml
