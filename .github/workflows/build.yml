@@ -24,9 +24,12 @@ jobs:
         run: |
           # Init
           echo "Starting"
+          
+          mkdir addon_list
+          touch addon_list/paths-config.yml
+          touch addon_list/paths-addons.yml
 
           # Go through all folders, add to filters if not existing
-          mkdir addon_list
           for f in $( find -- * -maxdepth 0 -type d | sort -r ); do
             if [ -f "$f"/config.yaml ]; then
               # Add to file
@@ -47,13 +50,13 @@ jobs:
         uses: dorny/paths-filter@v3
         id: config
         with:
-          filters: /addon-list/paths-config.yml
+          filters: addon-list/paths-config.yml
 
       - name: ⚙️ Detect changed addons
         uses: dorny/paths-filter@v3
         id: addons
         with:
-          filters: /addon-list/paths-addons.yml
+          filters: addon-list/paths-addons.yml
 
   test:
     if: ${{ needs.addon_changes.outputs.changed_addons != '[]' }}
