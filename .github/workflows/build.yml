@@ -46,6 +46,16 @@ jobs:
           sort -t= "addon_list/paths-config.yml" -o "addon_list/paths-config.yml"
           sort -t= "addon_list/paths-addons.yml" -o "addon_list/paths-addons.yml"
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ success() }}
+        with:
+          name: Lists
+          path: |
+            addon_list/*.*
+          retention-days: 1
+          if-no-files-found: error
+
       - name: ⚙️ Detect changed configs
         uses: dorny/paths-filter@v3
         id: config
