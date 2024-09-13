@@ -10,8 +10,7 @@ codenotary: notary@home-assistant.io
 arch:
   - amd64
   - aarch64
-  - armv7
-
+  
 # image: ghcr.io/andrewjswan/dtekinfo-addon-{arch}
 
 startup: application
