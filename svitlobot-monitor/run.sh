@@ -67,7 +67,7 @@ bashio::log.info
 
 bashio::color.blue
 cd /app
-node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --as-bot --add-timestamp --time-zone "Europe/Kiev" --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
+node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --add-timestamp --time-zone "Europe/Kiev" --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
 bashio::color.reset
 
 # ==============================================================================
