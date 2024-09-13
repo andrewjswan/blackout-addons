@@ -7,6 +7,7 @@
 [![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
 [![svitlobot_badge](https://img.shields.io/badge/Svitlo-Bot-orange.svg)](https://svitlobot.in.ua/)
 [![svitlobot_monitor](https://img.shields.io/badge/SvitloBot-Monitor-blue.svg)](https://github.com/PetroVoronov/svitlobot-monitor)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/PetroVoronov/svitlobot-monitor?label=upstream%40based)](https://github.com/PetroVoronov/svitlobot-monitor)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/blackout-addons?color=blue)](https://github.com/andrewjswan/blackout-addons/blob/master/LICENSE)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
