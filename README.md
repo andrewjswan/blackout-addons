@@ -21,3 +21,8 @@ Add the repository URL under **Supervisor → Add-on Store** in your Home Assist
 ## Confururation settings
 
 Configure the add-on via your Home Assistant front-end under **Supervisor → Dashboard → Addon**.
+
+> [!TIP]
+> ESPHome **Svitlo**Bot [configuration](https://github.com/andrewjswan/svitlobot) and [**SvitloBot - ESP Web Tools**](https://andrewjswan.github.io/svitlobot/)
+> 
+> DTEK Blackout schedule [calendars](https://github.com/andrewjswan/dtek-blackout-schedule-calendars)
