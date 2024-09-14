@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.9.5 - 2024-09-14
+
+- Switch from content_html to title
+
 ## 2024.9.3 - 2024-09-13
 
 - Github release

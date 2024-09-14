@@ -83,8 +83,9 @@ async def check_for_new_messages() -> None:
                 break
 
             LOGGER.debug("Processing messages with ID %s.", message["id"])
+            LOGGER.debug("Message: %s", message["title"])
             LOGGER.debug("Message: %s", message["content_html"])
-            relevant_lines = extract_relevant_lines(message["content_html"])
+            relevant_lines = extract_relevant_lines(message["title"])
             if relevant_lines:
                 for line in relevant_lines:
                     LOGGER.debug("Sending a message: %s", line)
