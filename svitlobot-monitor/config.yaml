@@ -1,6 +1,6 @@
 ---
 name: SvitloBot Monitor
-version: 2024.9.1
+version: 2024.9.7
 slug: svitlobot-monitor
 description: SvitloBot Monitor check the data from SvitloBot API and send the electricity switching on or off tendency indication for the appropriate DTEK group to the appropriate telegram user/chat/group/forum.
 url: https://github.com/andrewjswan/blackout-addons/svitlobot-monitor/
@@ -31,7 +31,7 @@ panel_title: SvitloBot Monitor
 
 options:
   group: 1
-  step_interval: "5:10,10:30,15:60"
+  step_interval: "5:10 10:30 15:60"
 
 schema:
   group: int
