@@ -1,6 +1,6 @@
 ---
 name: DTEKInfo
-version: 2024.9.3
+version: 2024.9.5
 slug: dtekinfo
 description: DTEKInfo checks the last message on the public channel that warns about blackouts, filters the message and sends it to your private channel or group.
 url: https://github.com/andrewjswan/blackout-addons/dtekinfo/
