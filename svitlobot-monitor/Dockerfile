@@ -6,16 +6,19 @@ FROM $BUILD_FROM
 
 # Packages
 RUN apk --no-cache --update --virtual build-dependencies add \
-    build-base python3 nodejs npm
+    build-base \
+    python3 \
+    nodejs \
+    npm
 
 # Build arguments
-ARG BUILD_ARCH
+ARG BUILD_NAME
+ARG BUILD_VERSION
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
-ARG BUILD_NAME
-ARG BUILD_REF
+ARG BUILD_ARCH
 ARG BUILD_REPOSITORY
-ARG BUILD_VERSION
+ARG BUILD_REF
 
 # Add Label
 LABEL \
