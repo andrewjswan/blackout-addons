@@ -81,7 +81,10 @@ async def senddata(text: str) -> None:
     """Send data for URL."""
     bot = AsyncTeleBot(config["token"])
     await bot.send_message(
-        config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day(),
+        config["chat_id"],
+        text,
+        parse_mode="Markdown",
+        disable_notification=not is_day(),
     )
 
 
@@ -150,9 +153,9 @@ def load_config() -> bool:
     config["url"] = url
     config["text_pattern"] = text_pattern_str
     if night_start:
-      config["night_start"] = night_start
+        config["night_start"] = night_start
     if night_end:
-      config["night_end"] = night_end
+        config["night_end"] = night_end
 
     return True
 
