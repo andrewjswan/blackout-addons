@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.9.7 - 2024-09-16
+
+- Add Silent mode in Nighttime
+
 ## 2024.9.5 - 2024-09-14
 
 - Switch from content_html to title
