@@ -1,6 +1,6 @@
 ---
 name: DTEKInfo
-version: 2024.9.7
+version: 2024.9.9
 slug: dtekinfo
 description: DTEKInfo checks the last message on the public channel that warns about blackouts, filters the message and sends it to your private channel or group.
 url: https://github.com/andrewjswan/blackout-addons/dtekinfo/
@@ -32,15 +32,13 @@ panel_title: DTEKInfo
 options:
   url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json'
   text_pattern: '1\s*груп[ау]'
-  night_start: 23
-  night_end: 8
+  night_time: "23:8"
 
 schema:
   token: password
   chat_id: str
   url: str
   text_pattern: str
-  night_start: int(0,24)?
-  night_end: int(0,24)?
+  night_time: match(^([0-9]|1[0-9]|2[0-4]):([0-9]|1[0-9]|2[0-4])$)?
 
   log_level: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)?
