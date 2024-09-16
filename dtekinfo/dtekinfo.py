@@ -19,6 +19,8 @@ config = {
     "url": "",
     "chat_id": "",
     "text_pattern": "",
+    "night_start": 23,
+    "night_end": 8
 }
 
 # A temporary file for storing the last message ID
@@ -57,6 +59,10 @@ def extract_relevant_lines(message_text: str) -> list[str]:
     return relevant_lines
 
 
+def is_day():
+    return int(config["night_end"]) <= (datetime.datetime.today()).hour <= int(config["night_start"])
+
+
 async def getdata(url: str) -> str:
     """Get JSON data for URL."""
     async with httpx.AsyncClient() as client:
@@ -68,7 +74,7 @@ async def getdata(url: str) -> str:
 async def senddata(text: str) -> None:
     """Send data for URL."""
     bot = AsyncTeleBot(config["token"])
-    await bot.send_message(config["chat_id"], text, parse_mode="Markdown")
+    await bot.send_message(config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day())
 
 
 async def check_for_new_messages() -> None:
@@ -112,6 +118,8 @@ def load_config() -> bool:
     bot_token = os.getenv("TOKEN")  # Telegram Bot token
     chat_id = int(os.getenv("CHAT_ID"))  # Destination chat ID
     url = os.getenv("URL")  # RSSHub URL (json)
+    night_start = os.getenv("NIGHT_START")  # Nighttime start (Hour)
+    night_end = os.getenv("NIGHT_END")  # Nighttime end (Hour)
 
     # Regex patterns
     text_pattern_str = os.getenv("TEXT_PATTERN")  # Group search regex pattern
@@ -133,6 +141,10 @@ def load_config() -> bool:
     config["chat_id"] = chat_id
     config["url"] = url
     config["text_pattern"] = text_pattern_str
+    if night_start:
+      config["night_start"] = night_start
+    if night_end:
+      config["night_end"] = night_end
 
     return True
 
