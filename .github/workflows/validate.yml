@@ -52,6 +52,10 @@ jobs:
       - name: 💅 Format
         run: python3 -m ruff format . --check
 
+      - name: 💅 Format Diff
+        if: failure()
+        run: python3 -m ruff format . --check --diff
+
   yamllint:
     name: 🧹 Yaml Lint
     if: ${{ needs.changes.outputs.yaml == 'true' }}
