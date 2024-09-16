@@ -24,6 +24,10 @@ config = {
     "night_end": 8,
 }
 
+HOUR_MIN = 0
+HOUR_MAX = 24
+HOUR_COUNT = 2
+
 # A temporary file for storing the last message ID
 last_message_file = "/share/dtekinfo/last_message.json"
 
@@ -63,9 +67,9 @@ def extract_relevant_lines(message_text: str) -> list[str]:
 def is_day() -> bool:
     """Day or Night."""
     return (
-        int(config["night_end"])
-        <= (datetime.datetime.now(tz=datetime.UTC)).hour
-        <= int(config["night_start"])
+        config["night_end"]
+        <= (datetime.datetime.now(tz=datetime.UTC)).astimezone().hour
+        <= config["night_start"]
     )
 
 
@@ -129,8 +133,7 @@ def load_config() -> bool:
     bot_token = os.getenv("TOKEN")  # Telegram Bot token
     chat_id = int(os.getenv("CHAT_ID"))  # Destination chat ID
     url = os.getenv("URL")  # RSSHub URL (json)
-    night_start = os.getenv("NIGHT_START")  # Nighttime start (Hour)
-    night_end = os.getenv("NIGHT_END")  # Nighttime end (Hour)
+    night_time = os.getenv("NIGHT_TIME")  # Nighttime (Hour:Hour)
 
     # Regex patterns
     text_pattern_str = os.getenv("TEXT_PATTERN")  # Group search regex pattern
@@ -152,10 +155,17 @@ def load_config() -> bool:
     config["chat_id"] = chat_id
     config["url"] = url
     config["text_pattern"] = text_pattern_str
-    if night_start:
-        config["night_start"] = night_start
-    if night_end:
-        config["night_end"] = night_end
+    if night_time:
+        night = night_time.split(":")
+        if (
+            len(night) == HOUR_COUNT
+            and night[0]
+            and night[1]
+            and (HOUR_MIN <= int(night[0]) <= HOUR_MAX)
+            and (HOUR_MIN <= int(night[1]) <= HOUR_MAX)
+        ):
+            config["night_start"] = int(night[0])
+            config["night_end"] = int(night[1])
 
     return True
 
