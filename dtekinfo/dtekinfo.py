@@ -24,6 +24,10 @@ config = {
     "night_end": 8,
 }
 
+HOUR_MIN = 0
+HOUR_MAX = 24
+HOUR_COUNT = 2
+
 # A temporary file for storing the last message ID
 last_message_file = "/share/dtekinfo/last_message.json"
 
@@ -64,7 +68,7 @@ def is_day() -> bool:
     """Day or Night."""
     return (
         config["night_end"]
-        <= (datetime.datetime.now(tz=datetime.timezone.utc)).astimezone().hour
+        <= (datetime.datetime.now(tz=datetime.UTC)).astimezone().hour
         <= config["night_start"]
     )
 
@@ -153,10 +157,15 @@ def load_config() -> bool:
     config["text_pattern"] = text_pattern_str
     if night_time:
         night = night_time.split(":")
-        if len(night) == 2:
-            if night[0] and night[1] and (0 <= int(night[0]) <= 24) and (0 <= int(night[1]) <= 24):
-                config["night_start"] = int(night[0])
-                config["night_end"] = int(night[1])
+        if (
+            len(night) == HOUR_COUNT
+            and night[0]
+            and night[1]
+            and (HOUR_MIN <= int(night[0]) <= HOUR_MAX)
+            and (HOUR_MIN <= int(night[1]) <= HOUR_MAX)
+        ):
+            config["night_start"] = int(night[0])
+            config["night_end"] = int(night[1])
 
     return True
 
