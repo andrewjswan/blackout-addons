@@ -155,8 +155,8 @@ def load_config() -> bool:
         night = night_time.split(":")
         if len(night) == 2:
             if night[0] and night[1] and (0 <= int(night[0]) <= 24) and (0 <= int(night[1]) <= 24):
-                config["night_start"] = int(night[0]])
-                config["night_end"] = int(night[1]])
+                config["night_start"] = int(night[0])
+                config["night_end"] = int(night[1])
 
     return True
 
