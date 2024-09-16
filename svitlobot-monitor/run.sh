@@ -56,6 +56,7 @@ bashio::log.info 'Configuration:'
 bashio::log.blue "  Group: $(bashio::config 'group')"
 bashio::log.blue "  Chat ID: $(bashio::config 'chat_id')"
 bashio::log.blue "  Step interval: $(bashio::config 'step_interval')"
+bashio::log.blue "  Nighttime: $(bashio::config 'night_time')"
 if bashio::config.true 'debug'; then
     bashio::log.info "  Setting debug mode"
     options+=(--debug)
@@ -67,7 +68,7 @@ bashio::log.info
 
 bashio::color.blue
 cd /app
-node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --add-timestamp --time-zone "Europe/Kiev" --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
+node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --add-timestamp --time-zone "Europe/Kiev" --night_time $(bashio::config 'night_time') --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
 bashio::color.reset
 
 # ==============================================================================
