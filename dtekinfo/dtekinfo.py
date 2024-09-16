@@ -61,8 +61,11 @@ def extract_relevant_lines(message_text: str) -> list[str]:
 
 
 def is_day() -> bool:
+    """Day or Night."""
     return (
-        int(config["night_end"]) <= (datetime.datetime.today()).hour <= int(config["night_start"])
+        int(config["night_end"])
+        <= (datetime.datetime.now(tz=datetime.UTC)).hour
+        <= int(config["night_start"])
     )
 
 
@@ -78,7 +81,7 @@ async def senddata(text: str) -> None:
     """Send data for URL."""
     bot = AsyncTeleBot(config["token"])
     await bot.send_message(
-        config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day()
+        config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day(),
     )
 
 
