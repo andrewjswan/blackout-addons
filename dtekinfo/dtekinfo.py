@@ -1,6 +1,7 @@
 """DTEKInfo Parser."""
 
 import asyncio
+import datetime
 import json
 import logging
 import os
@@ -20,7 +21,7 @@ config = {
     "chat_id": "",
     "text_pattern": "",
     "night_start": 23,
-    "night_end": 8
+    "night_end": 8,
 }
 
 # A temporary file for storing the last message ID
@@ -59,8 +60,10 @@ def extract_relevant_lines(message_text: str) -> list[str]:
     return relevant_lines
 
 
-def is_day():
-    return int(config["night_end"]) <= (datetime.datetime.today()).hour <= int(config["night_start"])
+def is_day() -> bool:
+    return (
+        int(config["night_end"]) <= (datetime.datetime.today()).hour <= int(config["night_start"])
+    )
 
 
 async def getdata(url: str) -> str:
@@ -74,7 +77,9 @@ async def getdata(url: str) -> str:
 async def senddata(text: str) -> None:
     """Send data for URL."""
     bot = AsyncTeleBot(config["token"])
-    await bot.send_message(config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day())
+    await bot.send_message(
+        config["chat_id"], text, parse_mode="Markdown", disable_notification=not is_day()
+    )
 
 
 async def check_for_new_messages() -> None:
