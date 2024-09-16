@@ -46,15 +46,14 @@ export TOKEN=$(bashio::config 'token')
 export CHAT_ID=$(bashio::config 'chat_id')
 export URL=$(bashio::config 'url')
 export TEXT_PATTERN=$(bashio::config 'text_pattern')
-export NIGHT_START=$(bashio::config 'night_start')
-export NIGHT_END=$(bashio::config 'night_end')
+export NIGHT_TIME=$(bashio::config 'night_time')
 
 bashio::log.info 'DTEKInfo Starting...'
 bashio::log.info 'Configuration:'
 bashio::log.blue "  Chat ID: $(bashio::config 'chat_id')"
 bashio::log.blue "  RSSHub URL: $(bashio::config 'url')"
 bashio::log.blue "  Pattern: $(bashio::config 'text_pattern')"
-bashio::log.blue "  Nighttime: $(bashio::config 'night_start'):00 - $(bashio::config 'night_end'):00 (UTC)"
+bashio::log.blue "  Nighttime: $(bashio::config 'night_time')"
 bashio::log.info 'DTEKInfo Start'
 bashio::log.info
 
