@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.9.9 - 2024-09-16
+
+- Rework Nighttime
+
 ## 2024.9.7 - 2024-09-16
 
 - Add Silent mode in Nighttime
