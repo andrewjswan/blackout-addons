@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.9.11 - 2024-09-17
+
+- Add Debug information for Nighttime
+
 ## 2024.9.9 - 2024-09-16
 
 - Rework Nighttime

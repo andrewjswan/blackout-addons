@@ -166,6 +166,13 @@ def load_config() -> bool:
         ):
             config["night_start"] = int(night[0])
             config["night_end"] = int(night[1])
+            LOGGER.debug(
+                "Night time: %r, Now: %d, Night from: %d to %d.",
+                is_day(),
+                (datetime.datetime.now(tz=datetime.UTC)).astimezone().hour,
+                config["night_start"],
+                config["night_end"],
+            )
 
     return True
 
