@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.1 - 2024-11-06
+
+- Bump SvitloBot Monitor to 1.5.6
+
 ## 2024.10.5 - 2024-10-31
 
 - Bump SvitloBot Monitor to 1.5.5
