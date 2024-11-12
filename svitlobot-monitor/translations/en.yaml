@@ -7,7 +7,7 @@ configuration:
     description: Telegram Bot Auth token
   chat_id:
     name: Chat ID
-    description: Telegram Chat ID
+    description: Target Telegram Chat ID
   step_interval:
     name: Step Interval
     description: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
