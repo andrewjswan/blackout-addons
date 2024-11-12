@@ -18,11 +18,11 @@ DTEKInfo checks the last message on the public channel that warns about blackout
 ## Confururation settings
 
 ```
-toket: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram bot Token
+toket: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                # Telegram bot Token
 url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json' # RSSHub URL for channel that warns about blackouts
-chat_id: -0000000000000 # Target Chat ID
-text_pattern: '1\s*груп[ау]' # Regex Text pattern (DTEK group)
-log_level: DEBUG # Optional, values: DEBUG|INFO|WARNING|ERROR|CRITICAL
+chat_id: -0000000000000                                                              # Target Chat ID
+text_pattern: '1\s*груп[ау]'                                                         # Regex Text pattern (DTEK group)
+log_level: DEBUG                                                                     # Optional, values: DEBUG|INFO|WARNING|ERROR|CRITICAL
 ```
 
 > [!TIP]
