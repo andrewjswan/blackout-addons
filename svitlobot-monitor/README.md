@@ -39,7 +39,8 @@ debug: false                                          # Optional: Debug level of
 
 > [!TIP]
 > ESPHome **Svitlo**Bot [configuration](https://github.com/andrewjswan/svitlobot) and [**SvitloBot - ESP Web Tools**](https://andrewjswan.github.io/svitlobot/)
-> 
+
+> [!TIP]
 > DTEK Blackout schedule [calendars](https://github.com/andrewjswan/dtek-blackout-schedule-calendars)
 
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-blue.svg
