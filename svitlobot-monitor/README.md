@@ -20,11 +20,14 @@
 ## Confururation settings
 
 ```
-group: int
-token: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram bot Token
-chat_id: -0000000000000 # Target Chat ID
-step_interval: 5:10 10:30 15:60 # Tendency by specifying a value step in percentage and a time interval in minutes
-debug: false # Optional: Debug level of logging
+group: int                                            # DTEK group ID
+token: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram Bot Auth token
+chat_id: -0000000000000                               # Target Telegram Chat ID
+step_interval: 5:10 10:30 15:60                       # Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
+min: 30                                               # Value in percentage, to react on decrease of percentage
+max: 80                                               # Value in percentage, to react on increase of percentage
+night_time: 23:8                                      # Interval in hours, when the script is sending messages in silent mode. Format is "start:stop" in 24h format
+debug: false                                          # Optional: Debug level of logging
 ```
 
 > [!NOTE]
