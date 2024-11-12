@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.3 - 2024-11-12
+
+- Add min/max value to react on increase/decrease of percentage
+
 ## 2024.11.1 - 2024-11-06
 
 - Bump SvitloBot Monitor to 1.5.6
