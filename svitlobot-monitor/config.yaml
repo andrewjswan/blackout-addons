@@ -32,6 +32,8 @@ panel_title: SvitloBot Monitor
 options:
   group: 1
   step_interval: "5:10 10:30 15:60"
+  min: 30
+  max: 80
   night_time: "23:8"
 
 schema:
@@ -39,5 +41,7 @@ schema:
   token: password
   chat_id: str
   step_interval: str
+  min: int(0,100)
+  max: int(0,100)
   night_time: str
   debug: bool?

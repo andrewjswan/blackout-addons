@@ -1,0 +1,25 @@
+configuration:
+  group:
+    name: Group
+    description: DTEK group ID
+  token:
+    name: Token
+    description: Telegram Bot Auth token
+  chat_id:
+    name: Chat ID
+    description: Target Telegram Chat ID
+  step_interval:
+    name: Step Interval
+    description: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
+  min:
+    name: Min
+    description: Value in percentage, to react on increase of percentage
+  max:
+    name: Max
+    description: Value in percentage, to react on decrease of percentage
+  night_time:
+    name: Night Time
+    description: Interval in hours, when the script is sending messages in silent mode. Format is "start:stop" in 24h format
+  debug:
+    name: Debug
+    description: Debug level of logging
