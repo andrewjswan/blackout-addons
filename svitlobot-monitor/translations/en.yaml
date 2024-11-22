@@ -8,6 +8,15 @@ configuration:
   chat_id:
     name: Chat ID
     description: Target Telegram Chat ID
+  tendency_detect:
+    name: Tendency detect new mode
+    description: Enable new Tendency detect algorithm
+  tendency_detect_period:
+    name: Tendency detect period
+  tendency_detect_stable_interval:
+    name: Tendency detect stable interval
+  tendency_detect_delta:
+    name: Tendency detect delta
   step_interval:
     name: Step Interval
     description: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"

@@ -1,8 +1,14 @@
 # Changelog
 
+## 2024.11.9 - 2024-11-22
+
+- Fix `night time`
+- Added description of new fields
+- The correct link to the repository is provided
+
 ## 2024.11.7 - 2024-11-22
 
-- Add new settings for new change checking algorithm.
+- Add new settings for new tendency detect algorithm.
 
 ## 2024.11.5 - 2024-11-22
 
@@ -10,7 +16,7 @@
 
 ## 2024.11.3 - 2024-11-12
 
-- Add min/max value to react on increase/decrease of percentage
+- Add `min/max` value to react on increase/decrease of percentage
 
 ## 2024.11.1 - 2024-11-06
 

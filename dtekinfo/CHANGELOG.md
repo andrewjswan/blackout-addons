@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.1 - 2024-11-22
+
+- The correct link to the repository is provided
+
 ## 2024.9.11 - 2024-09-17
 
 - Add Debug information for Nighttime

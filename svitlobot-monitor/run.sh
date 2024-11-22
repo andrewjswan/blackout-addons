@@ -68,13 +68,13 @@ if bashio::config.true 'tendency_detect'; then
         bashio::log.blue "    Period: $(bashio::config 'tendency_detect_period')"
         options+=(--tendency-detect-period $(bashio::config 'tendency_detect_period'))
     fi
-    if bashio::config.exists 'tendency_detect_delta'; then
-        bashio::log.blue "    Delta: $(bashio::config 'tendency_detect_delta')"
-        options+=(--tendency-detect-delta $(bashio::config 'tendency_detect_delta'))
-    fi
     if bashio::config.exists 'tendency_detect_stable_interval'; then
         bashio::log.blue "    Stable interval: $(bashio::config 'tendency_detect_stable_interval')"
         options+=(--tendency-detect-stable-interval $(bashio::config 'tendency_detect_stable_interval'))
+    fi
+    if bashio::config.exists 'tendency_detect_delta'; then
+        bashio::log.blue "    Delta: $(bashio::config 'tendency_detect_delta')"
+        options+=(--tendency-detect-delta $(bashio::config 'tendency_detect_delta'))
     fi
 else
     if bashio::config.exists 'step_interval'; then
@@ -91,8 +91,8 @@ if bashio::config.exists 'max'; then
     options+=(--max $(bashio::config 'max'))
 fi
 if bashio::config.exists 'night_time'; then
-    bashio::log.blue "  Nighttime: $(bashio::config 'night_time')"
-    options+=(--night_time $(bashio::config 'night_time'))
+    bashio::log.blue "  Night Time: $(bashio::config 'night_time')"
+    options+=(--night-time $(bashio::config 'night_time'))
 fi
 if bashio::config.true 'debug'; then
     bashio::log.info "  Setting debug mode"
