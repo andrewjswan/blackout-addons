@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.7 - 2024-11-22
+
+- Add new settings for new change checking algorithm.
+
 ## 2024.11.5 - 2024-11-22
 
 - Bump SvitloBot Monitor to 1.6.1

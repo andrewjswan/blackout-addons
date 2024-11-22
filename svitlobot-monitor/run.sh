@@ -51,14 +51,49 @@ export TELEGRAM_BOT_AUTH_TOKEN=$(bashio::config 'token')
 export TELEGRAM_CHAT_ID=$(bashio::config 'chat_id')
 export TELEGRAM_TOPIC_ID=0
 
+options+=(--language uk)
+options+=(--group $(bashio::config 'group'))
+options+=(--refresh-interval 5)
+options+=(--add-timestamp)
+options+=(--time-zone "Europe/Kiev")
+
 bashio::log.info 'SvitloBot Monitor Starting...'
 bashio::log.info 'Configuration:'
 bashio::log.blue "  Group: $(bashio::config 'group')"
 bashio::log.blue "  Chat ID: $(bashio::config 'chat_id')"
-bashio::log.blue "  Step interval: $(bashio::config 'step_interval')"
-bashio::log.blue "  Min: $(bashio::config 'min')"
-bashio::log.blue "  Max: $(bashio::config 'max')"
-bashio::log.blue "  Nighttime: $(bashio::config 'night_time')"
+if bashio::config.true 'tendency_detect'; then
+    bashio::log.blue "  Tendency detect:"
+    options+=(--tendency-detect-new)
+    if bashio::config.exists 'tendency_detect_period'; then
+        bashio::log.blue "    Period: $(bashio::config 'tendency_detect_period')"
+        options+=(--tendency-detect-period $(bashio::config 'tendency_detect_period'))
+    fi
+    if bashio::config.exists 'tendency_detect_delta'; then
+        bashio::log.blue "    Delta: $(bashio::config 'tendency_detect_delta')"
+        options+=(--tendency-detect-delta $(bashio::config 'tendency_detect_delta'))
+    fi
+    if bashio::config.exists 'tendency_detect_stable_interval'; then
+        bashio::log.blue "    Stable interval: $(bashio::config 'tendency_detect_stable_interval')"
+        options+=(--tendency-detect-stable-interval $(bashio::config 'tendency_detect_stable_interval'))
+    fi
+else
+    if bashio::config.exists 'step_interval'; then
+        bashio::log.blue "  Step interval: $(bashio::config 'step_interval')"
+        options+=(--step-interval-pair $(bashio::config 'step_interval'))
+    fi
+fi
+if bashio::config.exists 'min'; then
+    bashio::log.blue "  Min: $(bashio::config 'min')"
+    options+=(--min $(bashio::config 'min'))
+fi
+if bashio::config.exists 'max'; then
+    bashio::log.blue "  Max: $(bashio::config 'max')"
+    options+=(--max $(bashio::config 'max'))
+fi
+if bashio::config.exists 'night_time'; then
+    bashio::log.blue "  Nighttime: $(bashio::config 'night_time')"
+    options+=(--night_time $(bashio::config 'night_time'))
+fi
 if bashio::config.true 'debug'; then
     bashio::log.info "  Setting debug mode"
     options+=(--debug)
@@ -70,7 +105,7 @@ bashio::log.info
 
 bashio::color.blue
 cd /app
-node src/index.js --language uk --group $(bashio::config 'group') --refresh-interval 5 --add-timestamp --time-zone "Europe/Kiev" --night_time $(bashio::config 'night_time') --min $(bashio::config 'min') --max $(bashio::config 'max') --step-interval-pair $(bashio::config 'step_interval') ${options[@]}
+node src/index.js ${options[@]}
 bashio::color.reset
 
 # ==============================================================================
