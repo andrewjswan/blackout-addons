@@ -54,7 +54,6 @@ export TELEGRAM_TOPIC_ID=0
 options+=(--language uk)
 options+=(--group $(bashio::config 'group'))
 options+=(--refresh-interval 5)
-options+=(--add-timestamp)
 options+=(--time-zone "Europe/Kiev")
 
 bashio::log.info 'SvitloBot Monitor Starting...'
@@ -94,8 +93,12 @@ if bashio::config.exists 'night_time'; then
     bashio::log.blue "  Night Time: $(bashio::config 'night_time')"
     options+=(--night-time $(bashio::config 'night_time'))
 fi
+if bashio::config.true 'add_timestamp'; then
+    bashio::log.info "  Add timestamp to message."
+    options+=(--add-timestamp)
+fi
 if bashio::config.true 'debug'; then
-    bashio::log.info "  Setting debug mode"
+    bashio::log.info "  Setting debug mode."
     options+=(--debug)
 fi
 bashio::log.info 'SvitloBot Monitor Start'
