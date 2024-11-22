@@ -1,0 +1,11 @@
+critical:
+  - '(Critical|critical|Urgent|urgent)'
+
+enhancement:
+  - '(Enhancement|enhancement)'
+
+DTEKInfo:
+  - '(DTEKInfo|DtekInfo|Dtekinfo|dtekinfo)'
+
+SvitloBot:
+  - '(SvitloBot|Svitlobot|svitlobot)'
