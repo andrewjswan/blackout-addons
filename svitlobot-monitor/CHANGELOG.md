@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.11 - 2024-11-22
+
+- Add `add timestamp` option. Add timestamp to message
+
 ## 2024.11.9 - 2024-11-22
 
 - Fix `night time`

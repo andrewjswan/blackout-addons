@@ -29,6 +29,9 @@ configuration:
   night_time:
     name: Night Time
     description: Interval in hours, when the script is sending messages in silent mode. Format is "start:stop" in 24h format
+  add_timestamp:
+    name: Add Timestamp
+    description: Add timestamp to message
   debug:
     name: Debug
     description: Debug level of logging
