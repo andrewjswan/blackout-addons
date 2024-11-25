@@ -23,10 +23,10 @@
 group: int                                            # DTEK group ID
 token: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram Bot Auth token
 chat_id: -0000000000000                               # Target Telegram Chat ID
-tendency_detect: true                                 # Optional: Use new change checking algorithm. That is, it will work if the delta is greater than 10% at least for 3 minutes, and at most, the same delta will be for 7 minutes.
-tendency_detect_period: 7                             # Optional: 
-tendency_detect_delta: 10                             # Optional:
-tendency_detect_stable_interval: 3                    # Optional:
+tendency_detect: true                                 # Optional: Detect tendency by using another algorithm
+tendency_detect_period: 7                             # Optional: Count of measures to detect the tendency
+tendency_detect_stable_interval: 3                    # Optional: Count of measures to detect the stable tendency. Should be less than "tendency-detect-period"
+tendency_detect_delta: 10                             # Optional: Delta between the measures to detect the tendency. In percentage, to react on change of percentage, during the detect period 
 step_interval: 5:10 10:30 15:60                       # Optional: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
 min: 30                                               # Optional: Value in percentage, to react on decrease of percentage
 max: 80                                               # Optional: Value in percentage, to react on increase of percentage

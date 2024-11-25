@@ -1,5 +1,10 @@
 # Changelog
 
+## 2024.11.13 - 2024-11-25
+
+- Bump SvitloBot Monitor to 1.6.2
+- Update description
+
 ## 2024.11.11 - 2024-11-22
 
 - Add `add timestamp` option. Add timestamp to message

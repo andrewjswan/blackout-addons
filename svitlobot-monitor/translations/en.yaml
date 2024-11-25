@@ -12,11 +12,11 @@ configuration:
     name: Tendency detect new mode
     description: Enable new Tendency detect algorithm
   tendency_detect_period:
-    name: Tendency detect period
+    name: Count of measures to detect the tendency
   tendency_detect_stable_interval:
-    name: Tendency detect stable interval
+    name: Count of measures to detect the stable tendency. Should be less than "tendency-detect-period"
   tendency_detect_delta:
-    name: Tendency detect delta
+    name: Delta between the measures to detect the tendency. In percentage, to react on change of percentage, during the detect period
   step_interval:
     name: Step Interval
     description: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
