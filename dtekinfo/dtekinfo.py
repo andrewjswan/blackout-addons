@@ -58,9 +58,12 @@ def extract_relevant_lines(message_text: str) -> list[str]:
 
     for line in lines:
         cleaned_line = h.handle(line.strip())
-        if text_pattern.search(cleaned_line):
-            relevant_lines.append(f"{cleaned_line}")
-
+        match = text_pattern.search(cleaned_line)
+        if match:
+            if len(match.groups()) > 0:
+                relevant_lines.append(match.group(1))
+            else:
+                relevant_lines.append(f"{cleaned_line}")
     return relevant_lines
 
 
@@ -116,7 +119,6 @@ async def check_for_new_messages() -> None:
                 LOGGER.debug("No matching lines found.")
     except Exception as e:
         LOGGER.exception("Error:", exc_info=e)
-        raise
 
 
 def load_config() -> bool:

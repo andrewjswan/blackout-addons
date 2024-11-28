@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.3 - 2024-11-28
+
+- Regex match rework
+
 ## 2024.11.1 - 2024-11-22
 
 - The correct link to the repository is provided
