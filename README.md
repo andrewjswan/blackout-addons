@@ -25,5 +25,6 @@ Configure the add-on via your Home Assistant front-end under **Supervisor → Da
 
 > [!TIP]
 > ESPHome **Svitlo**Bot [configuration](https://github.com/andrewjswan/svitlobot) and [**SvitloBot - ESP Web Tools**](https://andrewjswan.github.io/svitlobot/)
-> 
+
+> [!TIP]
 > DTEK Blackout schedule [calendars](https://github.com/andrewjswan/dtek-blackout-schedule-calendars)
