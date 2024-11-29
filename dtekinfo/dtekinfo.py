@@ -51,7 +51,7 @@ def save_last_message(message_id: str) -> None:
 
 def extract_relevant_lines(message_text: str) -> list[str]:
     """Extract relevant lines from message."""
-    text_pattern = re.compile(config["text_pattern"], re.IGNORECASE)
+    text_pattern = re.compile(config["text_pattern"], re.IGNORECASE | re.DOTALL)
     lines = message_text.split("\n")
     relevant_lines = []
     h = html2texttg.HTML2Text()
@@ -61,6 +61,7 @@ def extract_relevant_lines(message_text: str) -> list[str]:
 
     for line in lines:
         cleaned_line = h.handle(line.strip())
+        LOGGER.debug("Message: %s", cleaned_line)
         match = text_pattern.search(cleaned_line)
         if match:
             if len(match.groups()) > 0:
@@ -117,9 +118,9 @@ async def check_for_new_messages() -> None:
                 for line in relevant_lines:
                     LOGGER.debug("Sending a message: %s", line)
                     await senddata(line)
-                    save_last_message(message["id"])
             else:
                 LOGGER.debug("No matching lines found.")
+            save_last_message(message["id"])
     except Exception as e:
         LOGGER.exception("Error:", exc_info=e)
 
