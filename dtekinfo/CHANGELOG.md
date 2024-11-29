@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.5 - 2024-11-29
+
+- Switched text analysis to the full message
+
 ## 2024.11.3 - 2024-11-28
 
 - Regex match rework

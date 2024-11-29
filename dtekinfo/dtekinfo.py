@@ -55,6 +55,9 @@ def extract_relevant_lines(message_text: str) -> list[str]:
     lines = message_text.split("\n")
     relevant_lines = []
     h = html2texttg.HTML2Text()
+    h.unicode_snob = True
+    h.emphasis_mark = ""
+    h.strong_mark = ""
 
     for line in lines:
         cleaned_line = h.handle(line.strip())
@@ -109,7 +112,7 @@ async def check_for_new_messages() -> None:
             LOGGER.debug("Processing messages with ID %s.", message["id"])
             LOGGER.debug("Message: %s", message["title"])
             LOGGER.debug("Message: %s", message["content_html"])
-            relevant_lines = extract_relevant_lines(message["title"])
+            relevant_lines = extract_relevant_lines(message["content_html"])
             if relevant_lines:
                 for line in relevant_lines:
                     LOGGER.debug("Sending a message: %s", line)
