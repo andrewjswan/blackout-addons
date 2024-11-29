@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.7 - 2024-11-29
+
+- Fix Regex search
+
 ## 2024.11.5 - 2024-11-29
 
 - Switched text analysis to the full message
