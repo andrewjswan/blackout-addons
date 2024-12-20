@@ -39,7 +39,7 @@ options:
   night_time: "23:8"
 
 schema:
-  group: str
+  group: str(1,3)
   token: password
   chat_id: str
   tendency_detect: bool?
