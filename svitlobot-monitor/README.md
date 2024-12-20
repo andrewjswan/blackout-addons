@@ -20,7 +20,7 @@
 ## Confururation settings
 
 ```
-group: int                                            # DTEK group ID
+group: 1.1                                            # DTEK group ID
 token: 9999999999:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA # Telegram Bot Auth token
 chat_id: -0000000000000                               # Target Telegram Chat ID
 tendency_detect: true                                 # Optional: Detect tendency by using another algorithm
