@@ -30,7 +30,7 @@ panel_icon: mdi:lightning-bolt-circle
 panel_title: SvitloBot Monitor
 
 options:
-  group: 1.1
+  group: 1.2
   tendency_detect: true
   tendency_detect_period: 7
   tendency_detect_delta: 10
