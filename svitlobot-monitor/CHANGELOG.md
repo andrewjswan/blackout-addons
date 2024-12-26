@@ -1,6 +1,6 @@
 # Changelog
 
-## 2024.12.7 - 2024-12-26
+## 2024.12.9 - 2024-12-26
 
 - Update to Svitlobot 1.6.5
 - Update for new DTEK groups in Svitlobot
