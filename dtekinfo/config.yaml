@@ -1,11 +1,9 @@
 ---
 name: DTEKInfo
-version: 2024.11.7
+version: 2025.11.1
 slug: dtekinfo
 description: DTEKInfo checks the last message on the public channel that warns about blackouts, filters the message and sends it to your private channel or group.
 url: https://github.com/andrewjswan/blackout-addons/tree/master/dtekinfo
-
-codenotary: notary@home-assistant.io
 
 arch:
   - amd64
