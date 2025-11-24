@@ -19,7 +19,7 @@ jobs:
       changed_addons: ${{ steps.addons.outputs.changes }}
     steps:
       - name: ↩️ Git Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: 🔎 Make Addon list
         run: |
           # Init
