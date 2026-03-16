@@ -47,13 +47,13 @@ jobs:
           sort -t= "addon-list/paths-addons.yml" -o "addon-list/paths-addons.yml"
 
       - name: ⚙️ Detect changed configs
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         id: config
         with:
           filters: addon-list/paths-config.yml
 
       - name: ⚙️ Detect changed addons
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         id: addons
         with:
           filters: addon-list/paths-addons.yml
