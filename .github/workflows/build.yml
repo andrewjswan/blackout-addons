@@ -12,7 +12,7 @@ on:
 
 jobs:
   addon_changes:
-    name: 👀 Check for Addon changes
+    name: 👀 Check for App changes
     runs-on: ubuntu-latest
     outputs:
       changed_config: ${{ steps.config.outputs.changes }}
@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: ↩️ Git Checkout
         uses: actions/checkout@v7
-      - name: 🔎 Make Addon list
+      - name: 🔎 Make App list
         run: |
           # Init
           echo "Starting"
@@ -108,7 +108,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          name: Blackout Addons - ${{steps.version.outputs.version}}
+          name: Blackout Apps - ${{steps.version.outputs.version}}
           tag_name: v${{steps.tag.outputs.tag}}
           generate_release_notes: true
 
