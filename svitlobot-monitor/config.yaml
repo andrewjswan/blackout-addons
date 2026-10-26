@@ -1,6 +1,6 @@
 ---
 name: SvitloBot Monitor
-version: 2025.11.1
+version: 2026.10.1
 slug: svitlobot-monitor
 description: SvitloBot Monitor check the data from SvitloBot API and send the electricity switching on or off tendency indication for the appropriate DTEK group to the appropriate telegram user/chat/group/forum.
 url: https://github.com/andrewjswan/blackout-addons/tree/master/svitlobot-monitor
@@ -9,7 +9,7 @@ arch:
   - amd64
   - aarch64
 
-image: ghcr.io/andrewjswan/svitlobot-monitor-addon-{arch}
+image: ghcr.io/andrewjswan/svitlobot-monitor-addon
 
 startup: application
 boot: auto
