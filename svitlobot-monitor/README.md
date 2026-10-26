@@ -1,10 +1,10 @@
 <div align="center">
-<h1><b>SvitloBot</b> Monitor Add-on</h1>
+<h1>Home Assistant App: <b>SvitloBot</b> Monitor</h1>
 </div>
 
 ## General
 
-[![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
+[![ha addon_badge](https://img.shields.io/badge/HA-App-blue.svg)](https://contributors.home-assistant.io/apps/)
 [![svitlobot_badge](https://img.shields.io/badge/Svitlo-Bot-orange.svg)](https://svitlobot.in.ua/)
 [![svitlobot_monitor](https://img.shields.io/badge/SvitloBot-Monitor-blue.svg)](https://github.com/PetroVoronov/svitlobot-monitor)
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/PetroVoronov/svitlobot-monitor?label=upstream%40based)](https://github.com/PetroVoronov/svitlobot-monitor)
