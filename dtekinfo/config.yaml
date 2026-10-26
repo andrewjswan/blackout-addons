@@ -28,7 +28,7 @@ panel_icon: mdi:lightning-bolt-circle
 panel_title: DTEKInfo
 
 options:
-  url: 'https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json'
+  url: "https://rsshub.app/telegram/channel/dtek_svitlo_official?limit=1&?format=json"
   text_pattern: '1\s*груп[ау]'
   night_time: "23:8"
 
