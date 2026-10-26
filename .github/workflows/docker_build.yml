@@ -16,7 +16,7 @@ jobs:
     outputs:
       version: ${{ steps.yaml.outputs.version }}
       architectures: ${{ steps.info.outputs.architectures }}
-      matrix: ${{ steps.matrix.outputs.matrix }}      
+      matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
       - name: Git Checkout
         uses: actions/checkout@v7
