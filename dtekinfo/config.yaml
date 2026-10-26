@@ -9,7 +9,7 @@ arch:
   - amd64
   - aarch64
 
-image: ghcr.io/andrewjswan/dtekinfo-addon-{arch}
+image: ghcr.io/andrewjswan/dtekinfo-addon
 
 startup: application
 boot: auto
