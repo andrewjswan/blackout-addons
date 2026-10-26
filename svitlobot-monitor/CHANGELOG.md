@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.10.1 - 2026-10-26
+
+- Update to Home Assistant Apps
+
 ## 2024.12.9 - 2024-12-26
 
 - Update to Svitlobot 1.6.5
