@@ -1,25 +1,25 @@
 #!/usr/bin/with-contenv bashio
 
 # ==============================================================================
-# Home Assistant DTEKInfo Add-on
-# Displays a simple add-on banner on startup
+# Home Assistant DTEKInfo Apps
+# Displays a simple app banner on startup
 # ==============================================================================
 
 if bashio::supervisor.ping; then
   bashio::log.blue \
     '-----------------------------------------------------------'
-  bashio::log.blue " Add-on: $(bashio::addon.name)"
-  bashio::log.blue " $(bashio::addon.description)"
+  bashio::log.blue " Apps: $(bashio::app.name)"
+  bashio::log.blue " $(bashio::app.description)"
   bashio::log.blue \
     '-----------------------------------------------------------'
-  bashio::log.blue " Add-on version: $(bashio::addon.version)"
-  if bashio::var.true "$(bashio::addon.update_available)"; then
-    bashio::log.magenta ' There is an update available for this add-on!'
+  bashio::log.blue " Apps version: $(bashio::app.version)"
+  if bashio::var.true "$(bashio::app.update_available)"; then
+    bashio::log.magenta ' There is an update available for this app!'
     bashio::log.magenta \
-        " Latest add-on version: $(bashio::addon.version_latest)"
+        " Latest app version: $(bashio::app.version_latest)"
     bashio::log.magenta ' Please consider upgrading as soon as possible.'
   else
-    bashio::log.green ' You are running the latest version of this add-on.'
+    bashio::log.green ' You are running the latest version of this app.'
   fi
 
   bashio::log.blue " System: $(bashio::info.operating_system)" \
