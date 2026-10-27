@@ -1,4 +1,4 @@
 aiohttp
-httpx
 html2texttg
+httpx
 telebot

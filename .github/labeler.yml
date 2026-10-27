@@ -1,11 +1,11 @@
 critical:
-  - '(Critical|critical|Urgent|urgent)'
+  - "(Critical|critical|Urgent|urgent)"
 
 enhancement:
-  - '(Enhancement|enhancement)'
+  - "(Enhancement|enhancement)"
 
 DTEKInfo:
-  - '(DTEKInfo|DtekInfo|Dtekinfo|dtekinfo)'
+  - "(DTEKInfo|DtekInfo|Dtekinfo|dtekinfo)"
 
 SvitloBot:
-  - '(SvitloBot|Svitlobot|svitlobot)'
+  - "(SvitloBot|Svitlobot|svitlobot)"

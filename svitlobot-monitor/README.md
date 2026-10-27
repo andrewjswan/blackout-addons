@@ -1,10 +1,10 @@
 <div align="center">
-<h1><b>SvitloBot</b> Monitor Add-on</h1>
+<h1>Home Assistant App: <b>SvitloBot</b> Monitor</h1>
 </div>
 
 ## General
 
-[![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
+[![ha addon_badge](https://img.shields.io/badge/HA-App-blue.svg)](https://contributors.home-assistant.io/apps/)
 [![svitlobot_badge](https://img.shields.io/badge/Svitlo-Bot-orange.svg)](https://svitlobot.in.ua/)
 [![svitlobot_monitor](https://img.shields.io/badge/SvitloBot-Monitor-blue.svg)](https://github.com/PetroVoronov/svitlobot-monitor)
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/PetroVoronov/svitlobot-monitor?label=upstream%40based)](https://github.com/PetroVoronov/svitlobot-monitor)
@@ -26,7 +26,7 @@ chat_id: -0000000000000                               # Target Telegram Chat ID
 tendency_detect: true                                 # Optional: Detect tendency by using another algorithm
 tendency_detect_period: 7                             # Optional: Count of measures to detect the tendency
 tendency_detect_stable_interval: 3                    # Optional: Count of measures to detect the stable tendency. Should be less than "tendency-detect-period"
-tendency_detect_delta: 10                             # Optional: Delta between the measures to detect the tendency. In percentage, to react on change of percentage, during the detect period 
+tendency_detect_delta: 10                             # Optional: Delta between the measures to detect the tendency. In percentage, to react on change of percentage, during the detect period
 step_interval: 5:10 10:30 15:60                       # Optional: Value step in percentage and time interval in minutes, to detect the tendency. Format is "percentage:time"
 min: 30                                               # Optional: Value in percentage, to react on decrease of percentage
 max: 80                                               # Optional: Value in percentage, to react on increase of percentage
@@ -36,10 +36,8 @@ debug: false                                          # Optional: Debug level of
 
 > [!NOTE]
 > Builded from [**Svitlo**Bot Monitor](https://github.com/PetroVoronov/svitlobot-monitor) by [Petro Voronov](https://github.com/PetroVoronov)
-> 
-> [![English Documentation](https://img.shields.io/static/v1?label=Documentation&message=English&color=blue)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README.md)
-[![Ukrainian Documentation](https://img.shields.io/static/v1?label=Documentation&message=Ukrainian&labelColor=1f5fb2&color=fad247)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README-uk.md)
-
+>
+> [![English Documentation](https://img.shields.io/static/v1?label=Documentation&message=English&color=blue)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README.md) [![Ukrainian Documentation](https://img.shields.io/static/v1?label=Documentation&message=Ukrainian&labelColor=1f5fb2&color=fad247)](https://github.com/PetroVoronov/svitlobot-monitor/blob/main/README-uk.md)
 
 > [!TIP]
 > ESPHome **Svitlo**Bot [configuration](https://github.com/andrewjswan/svitlobot) and [**SvitloBot - ESP Web Tools**](https://andrewjswan.github.io/svitlobot/)

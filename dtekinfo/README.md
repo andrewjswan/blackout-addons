@@ -1,10 +1,10 @@
 <div align="center">
-<h1>DTEKInfo Add-on</h1>
+<h1>Home Assistant App: DTEKInfo</h1>
 </div>
 
 ## General
 
-[![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
+[![ha addon_badge](https://img.shields.io/badge/HA-App-blue.svg)](https://contributors.home-assistant.io/apps/)
 [![DTEKInfo](https://img.shields.io/badge/DTEK-Info-blue.svg)](https://github.com/andrewjswan/blackout-addons/dtekinfo/)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/blackout-addons?color=blue)](https://github.com/andrewjswan/blackout-addons/blob/master/LICENSE)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)

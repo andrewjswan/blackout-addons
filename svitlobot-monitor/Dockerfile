@@ -1,5 +1,5 @@
 ### Build SvitloBot Monitor
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:stable
 FROM petrovoronov/svitlobot-monitor AS org
 
 FROM $BUILD_FROM

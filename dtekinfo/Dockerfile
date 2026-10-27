@@ -1,5 +1,5 @@
 ### Build DTEKInfo
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:stable
 FROM $BUILD_FROM
 
 # Packages

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.10.1 - 2026-10-26
+
+- Update to Home Assistant Apps
+
 ## 2024.11.7 - 2024-11-29
 
 - Fix Regex search
